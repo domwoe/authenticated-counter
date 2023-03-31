@@ -6,6 +6,8 @@ import motokoLogo from './assets/motoko_moving.png';
 import motokoShadowLogo from './assets/motoko_shadow.png';
 import reactLogo from './assets/react.svg';
 import * as be from './declarations/backend';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [count, setCount] = useState<number | undefined>();
@@ -36,12 +38,19 @@ function App() {
     }
   };
 
+  const notify = () => toast.error("You are not logged in!", {
+    position: toast.POSITION.BOTTOM_CENTER
+  });
+
   const increment = async () => {
     if (loading) return; // Cancel if waiting for a new count
     try {
       setLoading(true);
       await backend.inc(); // Increment the count by 1
       await fetchCount(); // Fetch the new count
+    } catch (err) {
+      notify();
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -127,6 +136,7 @@ function App() {
             Login
           </button>
         }
+        <ToastContainer autoClose={2000} />
       </div>
     </div>
   );
