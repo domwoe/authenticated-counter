@@ -7,6 +7,7 @@
 Simple example project shows how to build a Web3 application on the [Internet Computer](https://internetcomputer.org/).
 
 It is based on the [vite-react-motoko starter](https://github.com/rvanasa/vite-react-motoko) by @rvanasa. For more awesome resources, check out [Awesome Internet Computer](https://github.com/dfinity/awesome-internet-computer).
+The authentication code is primarily taken from the [example app in the Internet Identity repo](https://github.com/dfinity/internet-identity/tree/main/demos/using-dev-build).
 
 ## How to get started
 
